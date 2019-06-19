@@ -96,11 +96,11 @@ dependencies {
 
     implementation("com.jakewharton.timber:timber:4.7.1")
 
-//    implementation("org.koin:koin-core:2.0.1")
-//    implementation("org.koin:koin-core-ext:2.0.1")
-//    implementation("org.koin:koin-android:2.0.1")
-//    implementation("org.koin:koin-android-scope:2.0.1")
-//    implementation("org.koin:koin-android-viewmodel:2.0.1")
+    implementation("org.koin:koin-core:2.0.1")
+    implementation("org.koin:koin-core-ext:2.0.1")
+    implementation("org.koin:koin-android:2.0.1")
+    implementation("org.koin:koin-android-scope:2.0.1")
+    implementation("org.koin:koin-android-viewmodel:2.0.1")
 
     testImplementation("junit:junit:4.13-beta-3")
     androidTestImplementation("androidx.test:runner:1.2.0")
