@@ -6,4 +6,9 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="SplashTheme" parent="AppTheme">
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="android:windowBackground">@color/splashBackground</item>
+  </style>
+
 </resources>

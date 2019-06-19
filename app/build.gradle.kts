@@ -26,10 +26,10 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             proguardFiles(
-                getDefaultProguardFile(
-                    "proguard-android-optimize.txt"
-                ),
-                "proguard-rules.pro"
+                    getDefaultProguardFile(
+                            "proguard-android-optimize.txt"
+                    ),
+                    "proguard-rules.pro"
             )
         }
         getByName("debug") {
@@ -37,25 +37,25 @@ android {
         }
     }
 
-    applicationVariants.all(object : Action<ApplicationVariant> {
-        override fun execute(variant: ApplicationVariant) {
-            variant.outputs.all(object : Action<BaseVariantOutput> {
-                override fun execute(output: BaseVariantOutput) {
-                    val outputImpl = output as BaseVariantOutputImpl
-                    val fileName = output.outputFileName
-                        .replace(
-                            "-release",
-                            "-release-v${defaultConfig.versionName}-vc${defaultConfig.versionCode}"
-                        )
-                        .replace(
-                            "-debug",
-                            "-debug-v${defaultConfig.versionName}-vc${defaultConfig.versionCode}"
-                        )
-                    outputImpl.outputFileName = fileName
-                }
-            })
-        }
-    })
+//    applicationVariants.all(object : Action<ApplicationVariant> {
+//        override fun execute(variant: ApplicationVariant) {
+//            variant.outputs.all(object : Action<BaseVariantOutput> {
+//                override fun execute(output: BaseVariantOutput) {
+//                    val outputImpl = output as BaseVariantOutputImpl
+//                    val fileName = output.outputFileName
+//                        .replace(
+//                            "-release",
+//                            "-release-v${defaultConfig.versionName}-vc${defaultConfig.versionCode}"
+//                        )
+//                        .replace(
+//                            "-debug",
+//                            "-debug-v${defaultConfig.versionName}-vc${defaultConfig.versionCode}"
+//                        )
+//                    outputImpl.outputFileName = fileName
+//                }
+//            })
+//        }
+//    })
 
     androidExtensions {
         isExperimental = true
@@ -76,15 +76,15 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
 
     //    Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05")
-    implementation("androidx.navigation:navigation-ui-ktx:2.1.0-alpha05")
+//    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-alpha05")
+//    implementation("androidx.navigation:navigation-ui-ktx:2.1.0-alpha05")
 
     implementation("androidx.appcompat:appcompat:1.1.0-beta01")
     implementation("androidx.core:core-ktx:1.2.0-alpha02")
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
-    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
+//    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
 
-    implementation("com.google.code.gson:gson:2.8.5")
+//    implementation("com.google.code.gson:gson:2.8.5")
 
     //    Lifecycle
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01")
@@ -93,18 +93,18 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0-alpha07")
 
     //    Retrofit, okHttp-logging, retrofit-coroutines
-    implementation("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:3.12.1")
+//    implementation("com.squareup.retrofit2:retrofit:2.6.0")
+//    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
+//    implementation("com.squareup.okhttp3:logging-interceptor:3.12.1")
 
     implementation("com.jakewharton.timber:timber:4.7.1")
 
 //  Koin
-    implementation("org.koin:koin-core:2.0.1")
-    implementation("org.koin:koin-core-ext:2.0.1")
-    implementation("org.koin:koin-android:2.0.1")
-    implementation("org.koin:koin-android-scope:2.0.1")
-    implementation("org.koin:koin-android-viewmodel:2.0.1")
+//    implementation("org.koin:koin-core:2.0.1")
+//    implementation("org.koin:koin-core-ext:2.0.1")
+//    implementation("org.koin:koin-android:2.0.1")
+//    implementation("org.koin:koin-android-scope:2.0.1")
+//    implementation("org.koin:koin-android-viewmodel:2.0.1")
 
     testImplementation("junit:junit:4.13-beta-3")
     androidTestImplementation("androidx.test:runner:1.2.0")
