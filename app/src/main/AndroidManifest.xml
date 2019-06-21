@@ -14,7 +14,9 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-    <activity android:name=".ui.intro.IntroActivity"></activity>
+    <activity
+      android:name=".ui.intro.IntroActivity"
+      android:theme="@style/IntroTheme"></activity>
     <activity
       android:name=".ui.SplashActivity"
       android:theme="@style/SplashTheme">

@@ -7,10 +7,11 @@
   tools:context=".ui.intro.IntroActivity">
 
   <androidx.viewpager.widget.ViewPager
+    android:id="@+id/vpIntro"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_marginBottom="8dp"
-    app:layout_constraintBottom_toTopOf="@+id/materialButton"
+    app:layout_constraintBottom_toTopOf="@+id/btnIntroSkip"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
@@ -18,32 +19,35 @@
     app:layout_constraintVertical_bias="1.0" />
 
   <com.google.android.material.button.MaterialButton
-    android:id="@+id/materialButton"
+    android:id="@+id/btnIntroSkip"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginBottom="8dp"
+    android:text="Skip"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent" />
 
   <LinearLayout
+    android:id="@+id/llIntro"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:orientation="horizontal"
-    app:layout_constraintBottom_toBottomOf="@+id/materialButton"
-    app:layout_constraintEnd_toStartOf="@+id/materialButton2"
-    app:layout_constraintStart_toEndOf="@+id/materialButton"
-    app:layout_constraintTop_toTopOf="@+id/materialButton" />
+    app:layout_constraintBottom_toBottomOf="@+id/btnIntroSkip"
+    app:layout_constraintEnd_toStartOf="@+id/btnIntroNext"
+    app:layout_constraintStart_toEndOf="@+id/btnIntroSkip"
+    app:layout_constraintTop_toTopOf="@+id/btnIntroSkip" />
 
   <com.google.android.material.button.MaterialButton
-    android:id="@+id/materialButton2"
+    android:id="@+id/btnIntroNext"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
-    app:layout_constraintBottom_toBottomOf="@+id/materialButton"
+    android:text="Next"
+    app:layout_constraintBottom_toBottomOf="@+id/btnIntroSkip"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/materialButton" />
+    app:layout_constraintTop_toTopOf="@+id/btnIntroSkip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

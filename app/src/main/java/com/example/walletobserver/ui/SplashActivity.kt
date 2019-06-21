@@ -12,10 +12,6 @@ class SplashActivity : AppCompatActivity(), KoinComponent {
 
   private val prefs: PrefsManager by inject()
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-  }
-
   override fun onResume() {
     super.onResume()
     if (!prefs.isItFirstTimeLaunch()) {
