@@ -11,6 +11,7 @@ import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.walletobserver.R
 import com.example.walletobserver.ui.MainActivity
+import com.example.walletobserver.ui.initial_settings.InitialSettingsActivity
 import com.example.walletobserver.util.PrefsManager
 import com.example.walletobserver.util.extensions.launchActivity
 import kotlinx.android.synthetic.main.activity_intro.*
@@ -119,7 +120,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 
   private fun finishIntro() {
 //    prefs.setFirstTimeLaunch(false)
-    launchActivity<MainActivity> { }
+    launchActivity<InitialSettingsActivity> { }
     finish()
   }
 }

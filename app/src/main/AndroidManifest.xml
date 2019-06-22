@@ -14,10 +14,12 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-    <activity android:name=".ui.initial_settings.InitialSettingsActivity"></activity>
+    <activity
+      android:name=".ui.initial_settings.InitialSettingsActivity"
+      android:theme="@style/NoActionBarTheme"></activity>
     <activity
       android:name=".ui.intro.IntroActivity"
-      android:theme="@style/IntroTheme" />
+      android:theme="@style/NoActionBarTheme" />
     <activity
       android:name=".ui.SplashActivity"
       android:theme="@style/SplashTheme">
