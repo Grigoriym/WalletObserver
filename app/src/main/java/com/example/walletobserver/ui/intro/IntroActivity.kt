@@ -37,7 +37,8 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
     vpIntro.adapter = ipa
     vpIntro.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
       override fun onPageSelected(position: Int) {
-
+        val total = vpIntro.adapter?.count ?: 1
+        btnIntroNext.isEnabled = position != (total - 1)
       }
 
       override fun onPageScrollStateChanged(state: Int) {
@@ -53,7 +54,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
       finishIntro()
     }
     btnIntroNext.setOnClickListener {
-
+      vpIntro.setCurrentItem(getNextPossibleItemIndex(1), true)
     }
   }
 
@@ -64,10 +65,12 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 //    llIntro.removeAllViews()
   }
 
-//  change this
   private fun getNextPossibleItemIndex(change: Int): Int {
     val currentIndex = vpIntro.currentItem
     val total = vpIntro.adapter?.count ?: 1
+    if (currentIndex == (total - 1)) {
+      return currentIndex
+    }
     if (currentIndex + change < 0) {
       return 0
     }
