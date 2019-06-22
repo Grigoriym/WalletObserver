@@ -1,13 +1,13 @@
 package com.example.walletobserver.ui.intro
 
-//https://www.androidhive.info/2016/05/android-build-intro-slider-app/
-//  https://stackoverflow.com/questions/10852744/android-viewpager-prev-next-button
-
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.walletobserver.R
 import com.example.walletobserver.ui.MainActivity
@@ -16,10 +16,7 @@ import com.example.walletobserver.util.extensions.launchActivity
 import kotlinx.android.synthetic.main.activity_intro.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import android.view.WindowManager
 import kotlin.math.abs
-import android.text.Html
-import android.widget.TextView
 
 class IntroActivity : AppCompatActivity(), KoinComponent {
 
@@ -42,7 +39,11 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
         addBottomDots(position)
 
         val total = vpIntro.adapter?.count ?: 1
-        btnIntroNext.isEnabled = position != (total - 1)
+        if (position == (total - 1)) {
+          btnIntroNext.text = "Let's Go!"
+        } else {
+          btnIntroNext.text = "Next"
+        }
       }
 
       override fun onPageScrollStateChanged(state: Int) {
@@ -60,15 +61,18 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
       finishIntro()
     }
     btnIntroNext.setOnClickListener {
-      vpIntro.setCurrentItem(getNextPossibleItemIndex(1), true)
+      when (btnIntroNext.text) {
+        "Next" -> {
+          vpIntro.setCurrentItem(getNextPossibleItemIndex(1), true)
+        }
+        "Let's Go!" -> finishIntro()
+      }
+
     }
   }
 
   private fun addBottomDots(position: Int) {
-//    val colorsActive = arrayOf(resources.getIntArray(R.array.array_dot_active))
-//    val colorsInactive = arrayOf<Int>(resources.getIntArray(R.array.array_dot_inactive))
     val dots = arrayOfNulls<TextView>(4)
-
     val colorsActive = resources.getIntArray(R.array.array_dot_active)
     val colorsInactive = resources.getIntArray(R.array.array_dot_inactive)
 
@@ -76,7 +80,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 
     for (i in 0 until dots.size) {
       dots[i] = TextView(this)
-      dots[i]?.text = Html.fromHtml("&#8226;")
+      dots[i]?.text = HtmlCompat.fromHtml("&#8226;", HtmlCompat.FROM_HTML_MODE_LEGACY)
       dots[i]?.textSize = 35f
       dots[i]?.setTextColor(colorsInactive[position])
       llIntro.addView(dots[i])
