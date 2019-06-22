@@ -9,5 +9,35 @@
   <color name="icons">#212121</color>
   <color name="divider">#BDBDBD</color>
 
-  <color name="splashBackground">605a5a</color>
+  <color name="splashBackground">#605a5a</color>
+
+  <color name="bg_intro_screen_1">#f64c73</color>
+  <color name="bg_intro_screen_2">#20d2bb</color>
+  <color name="bg_intro_screen_3">#3395ff</color>
+  <color name="bg_intro_screen_4">#c873f4</color>
+
+  <color name="dot_inactive_1">#d1395c</color>
+  <color name="dot_inactive_2">#14a895</color>
+  <color name="dot_inactive_3">#2278d4</color>
+  <color name="dot_inactive_4">#a854d4</color>
+
+  <color name="dot_active_1">#f98da5</color>
+  <color name="dot_active_2">#8cf9eb</color>
+  <color name="dot_active_3">#93c6fd</color>
+  <color name="dot_active_4">#e4b5fc</color>
+
+  <array name="array_dot_active">
+    <item>@color/dot_active_1</item>
+    <item>@color/dot_active_2</item>
+    <item>@color/dot_active_3</item>
+    <item>@color/dot_active_4</item>
+  </array>
+
+  <array name="array_dot_inactive">
+    <item>@color/dot_inactive_1</item>
+    <item>@color/dot_inactive_2</item>
+    <item>@color/dot_inactive_3</item>
+    <item>@color/dot_inactive_4</item>
+  </array>
+
 </resources>
