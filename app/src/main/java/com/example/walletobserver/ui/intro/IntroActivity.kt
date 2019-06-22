@@ -18,6 +18,8 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import android.view.WindowManager
 import kotlin.math.abs
+import android.text.Html
+import android.widget.TextView
 
 class IntroActivity : AppCompatActivity(), KoinComponent {
 
@@ -37,6 +39,8 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
     vpIntro.adapter = ipa
     vpIntro.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
       override fun onPageSelected(position: Int) {
+        addBottomDots(position)
+
         val total = vpIntro.adapter?.count ?: 1
         btnIntroNext.isEnabled = position != (total - 1)
       }
@@ -50,6 +54,8 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
       }
     })
 
+    addBottomDots(0)
+
     btnIntroSkip.setOnClickListener {
       finishIntro()
     }
@@ -59,10 +65,26 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
   }
 
   private fun addBottomDots(position: Int) {
-    val colorsActive = arrayOf(resources.getIntArray(R.array.array_dot_active))
-    val colorsInactive = arrayOf(resources.getIntArray(R.array.array_dot_inactive))
+//    val colorsActive = arrayOf(resources.getIntArray(R.array.array_dot_active))
+//    val colorsInactive = arrayOf<Int>(resources.getIntArray(R.array.array_dot_inactive))
+    val dots = arrayOfNulls<TextView>(4)
 
-//    llIntro.removeAllViews()
+    val colorsActive = resources.getIntArray(R.array.array_dot_active)
+    val colorsInactive = resources.getIntArray(R.array.array_dot_inactive)
+
+    llIntro.removeAllViews()
+
+    for (i in 0 until dots.size) {
+      dots[i] = TextView(this)
+      dots[i]?.text = Html.fromHtml("&#8226;")
+      dots[i]?.textSize = 35f
+      dots[i]?.setTextColor(colorsInactive[position])
+      llIntro.addView(dots[i])
+    }
+    if (dots.isNotEmpty()) {
+      dots[position]?.setTextColor(colorsActive[position])
+    }
+
   }
 
   private fun getNextPossibleItemIndex(change: Int): Int {
