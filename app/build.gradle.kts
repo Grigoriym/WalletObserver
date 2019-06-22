@@ -80,7 +80,7 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.1.0-beta01")
     implementation("androidx.core:core-ktx:1.2.0-alpha02")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta2")
 //    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
 
 //    implementation("com.google.code.gson:gson:2.8.5")
