@@ -1,6 +1,5 @@
 package com.example.walletobserver.ui
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.walletobserver.ui.intro.IntroActivity
 import com.example.walletobserver.util.PrefsManager
@@ -14,6 +13,7 @@ class SplashActivity : AppCompatActivity(), KoinComponent {
 
   override fun onResume() {
     super.onResume()
+    prefs.setFirstTimeLaunch(true)//todo needs to be deleted eventually
     if (!prefs.isItFirstTimeLaunch()) {
       this.launchActivity<MainActivity> { }
     } else {

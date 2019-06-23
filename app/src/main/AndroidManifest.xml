@@ -16,7 +16,7 @@
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
     <activity
       android:name=".ui.initial_settings.InitialSettingsActivity"
-      android:theme="@style/NoActionBarTheme"></activity>
+      android:theme="@style/NoActionBarTheme"/>
     <activity
       android:name=".ui.intro.IntroActivity"
       android:theme="@style/NoActionBarTheme" />
