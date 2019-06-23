@@ -16,10 +16,10 @@
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
     <activity
       android:name=".ui.initial_settings.InitialSettingsActivity"
-      android:theme="@style/NoActionBarTheme"/>
+      android:theme="@style/AppTheme"/>
     <activity
       android:name=".ui.intro.IntroActivity"
-      android:theme="@style/NoActionBarTheme" />
+      android:theme="@style/AppTheme" />
     <activity
       android:name=".ui.SplashActivity"
       android:theme="@style/SplashTheme">
