@@ -119,7 +119,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
   }
 
   private fun finishIntro() {
-//    prefs.setFirstTimeLaunch(false)
+    prefs.setFirstTimeLaunch(false)
     launchActivity<InitialSettingsActivity> { }
     finish()
   }

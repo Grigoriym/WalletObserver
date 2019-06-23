@@ -11,12 +11,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(29)
 
     defaultConfig {
         applicationId = "com.example.walletobserver"
         minSdkVersion(19)
-        targetSdkVersion(28)
+        targetSdkVersion(29)
         versionCode = 1
         versionName = "0.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -81,6 +81,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.1.0-beta01")
     implementation("androidx.core:core-ktx:1.2.0-alpha02")
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta2")
+
 //    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
 
 //    implementation("com.google.code.gson:gson:2.8.5")
@@ -95,6 +96,10 @@ dependencies {
 //    implementation("com.squareup.okhttp3:logging-interceptor:3.12.1")
 
     implementation("com.jakewharton.timber:timber:4.7.1")
+
+    implementation("androidx.room:room-runtime:2.1.0")
+    implementation("androidx.room:room-ktx:2.1.0")
+    kapt("androidx.room:room-compiler:2.1.0")
 
     implementation("org.koin:koin-core:2.0.1")
     implementation("org.koin:koin-core-ext:2.0.1")

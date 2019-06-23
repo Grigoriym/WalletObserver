@@ -15,6 +15,7 @@ class InitialSettingsActivity : AppCompatActivity() {
 
     btnInitialSettingsNext.setOnClickListener {
       launchActivity<MainActivity> {  }
+      finish()
     }
   }
 
