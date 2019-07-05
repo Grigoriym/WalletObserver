@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
   private fun displaySelectedScreen(itemId: Int): Boolean {
     when (itemId) {
       R.id.nav_home -> navController.navigate(R.id.homeFragment)
+      R.id.nav_records -> navController.navigate(R.id.recordsFragment)
     }
     drawerLayout.closeDrawer(GravityCompat.START)
     return true
