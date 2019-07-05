@@ -54,6 +54,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     when (itemId) {
       R.id.nav_home -> navController.navigate(R.id.homeFragment)
       R.id.nav_records -> navController.navigate(R.id.recordsFragment)
+      R.id.nav_debts -> navController.navigate(R.id.debtsFragment)
+      R.id.nav_goals -> navController.navigate(R.id.goalsFragment)
+      R.id.nav_shopping_lists -> navController.navigate(R.id.shoppingListsFragment)
     }
     drawerLayout.closeDrawer(GravityCompat.START)
     return true

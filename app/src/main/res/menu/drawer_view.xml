@@ -10,4 +10,16 @@
     android:id="@+id/nav_records"
     android:title="Records"/>
 
+  <item
+    android:id="@+id/nav_debts"
+    android:title="Debts"/>
+
+  <item
+    android:id="@+id/nav_goals"
+    android:title="Goals"/>
+
+  <item
+    android:id="@+id/nav_shopping_lists"
+    android:title="Shopping Lists"/>
+
 </menu>
