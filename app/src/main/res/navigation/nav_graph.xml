@@ -19,7 +19,11 @@
     android:id="@+id/recordsFragment"
     android:name="com.example.walletobserver.ui.records.RecordsFragment"
     android:label="Records"
-    tools:layout="@layout/fragment_records" />
+    tools:layout="@layout/fragment_records" >
+    <action
+      android:id="@+id/nextFragment"
+      app:destination="@id/addRecordFragment" />
+  </fragment>
 
   <fragment
     android:id="@+id/debtsFragment"
