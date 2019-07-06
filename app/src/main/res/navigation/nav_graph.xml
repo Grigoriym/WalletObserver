@@ -9,7 +9,11 @@
     android:id="@+id/homeFragment"
     android:name="com.example.walletobserver.ui.home.HomeFragment"
     android:label="Home"
-    tools:layout="@layout/fragment_home" />
+    tools:layout="@layout/fragment_home" >
+    <action
+      android:id="@+id/nextFragment"
+      app:destination="@id/addRecordFragment" />
+  </fragment>
 
   <fragment
     android:id="@+id/recordsFragment"
@@ -34,5 +38,11 @@
     android:name="com.example.walletobserver.ui.shopping_lists.ShoppingListsFragment"
     android:label="Shopping Lists"
     tools:layout="@layout/fragment_shopping_lists" />
+
+  <fragment
+    android:id="@+id/addRecordFragment"
+    android:name="com.example.walletobserver.ui.add_record.AddRecordFragment"
+    android:label="Add Record"
+    tools:layout="@layout/fragment_add_record" />
 
 </navigation>

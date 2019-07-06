@@ -30,7 +30,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
   private fun setupNavigation() {
     appBarConfiguration = AppBarConfiguration(
       setOf(
-        R.id.homeFragment
+        R.id.homeFragment,
+        R.id.recordsFragment,
+        R.id.debtsFragment,
+        R.id.goalsFragment,
+        R.id.shoppingListsFragment
       ), drawerLayout
     )
 
