@@ -25,19 +25,44 @@ class AddRecordFragment : Fragment() {
     initButtons()
   }
 
-  private fun initButtons(){
-    btnZeroAddRecord.setOnClickListener{
-      tvAddRecord.text = "${tvAddRecord.text}0"
+  private fun initButtons() {
+    btnZeroAddRecord.setOnClickListener {
+      changeTvText("0")
     }
     btnOneAddRecord.setOnClickListener {
-      tvAddRecord.text = "${tvAddRecord.text}1"
+      changeTvText("1")
     }
     btnTwoAddRecord.setOnClickListener {
-      tvAddRecord.text = "${tvAddRecord.text}2"
+      changeTvText("2")
+    }
+    btnThreeAddRecord.setOnClickListener {
+      changeTvText("3")
+    }
+    btnFourAddRecord.setOnClickListener {
+      changeTvText("4")
+    }
+    btnFiveAddRecord.setOnClickListener {
+      changeTvText("5")
+    }
+    btnSixAddRecord.setOnClickListener {
+      changeTvText("6")
+    }
+    btnSevenAddRecord.setOnClickListener {
+      changeTvText("7")
+    }
+    btnEightAddRecord.setOnClickListener {
+      changeTvText("8")
+    }
+    btnNineAddRecord.setOnClickListener {
+      changeTvText("9")
     }
     btnDeleteAddRecord.setOnClickListener {
       tvAddRecord.text = tvAddRecord.text.dropLast(1)
     }
+  }
+
+  private fun changeTvText(value: String) {
+    tvAddRecord.text = "${tvAddRecord.text}$value"
   }
 
 }

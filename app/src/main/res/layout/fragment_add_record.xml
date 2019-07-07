@@ -20,19 +20,18 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/tvAddRecord" />
 
-    <!--todo fix it-->
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tvAddRecord"
       android:layout_width="0dp"
-      android:layout_height="wrap_content"
+      android:layout_height="64dp"
       android:layout_marginStart="8dp"
       android:layout_marginEnd="16dp"
       android:layout_marginBottom="8dp"
-      android:gravity="end"
+      android:gravity="end|center_vertical"
       android:maxLength="16"
       android:maxLines="1"
-      android:textSize="46sp"
-      app:autoSizeMaxTextSize="46sp"
+      android:textSize="50sp"
+      app:autoSizeMaxTextSize="50sp"
       app:autoSizeMinTextSize="12sp"
       app:autoSizeStepGranularity="4sp"
       app:autoSizeTextType="uniform"
