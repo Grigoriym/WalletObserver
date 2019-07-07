@@ -97,6 +97,10 @@ dependencies {
 
   implementation("com.jakewharton.timber:timber:4.7.1")
 
+  //    Glide
+  implementation("com.github.bumptech.glide:glide:4.9.0")
+  kapt("com.github.bumptech.glide:compiler:4.9.0")
+
   implementation("androidx.room:room-runtime:2.1.0")
   implementation("androidx.room:room-ktx:2.1.0")
   kapt("androidx.room:room-compiler:2.1.0")

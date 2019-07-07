@@ -10,8 +10,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnAddRecordIncome"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:text="Income"
+      app:layout_constraintEnd_toStartOf="@+id/btnAddRecordExpense"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btnAddRecordExpense"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:text="Expense"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/btnAddRecordIncome"
+      app:layout_constraintTop_toTopOf="@+id/btnAddRecordIncome" />
+
     <androidx.appcompat.widget.AppCompatImageView
-      android:id="@+id/appCompatTextView2"
+      android:id="@+id/ivAddRecordType"
       android:layout_width="50dp"
       android:layout_height="50dp"
       android:layout_marginStart="8dp"
@@ -23,26 +46,27 @@
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tvAddRecord"
       android:layout_width="0dp"
-      android:layout_height="64dp"
+      android:layout_height="74dp"
       android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
       android:layout_marginEnd="16dp"
       android:layout_marginBottom="8dp"
       android:gravity="end|center_vertical"
       android:maxLength="16"
       android:maxLines="1"
-      android:textSize="50sp"
-      app:autoSizeMaxTextSize="50sp"
+      android:textSize="60sp"
+      app:autoSizeMaxTextSize="60sp"
       app:autoSizeMinTextSize="12sp"
       app:autoSizeStepGranularity="4sp"
       app:autoSizeTextType="uniform"
-      app:layout_constraintBottom_toTopOf="@+id/guideline3"
-      app:layout_constraintEnd_toStartOf="@+id/appCompatTextView"
-      app:layout_constraintStart_toEndOf="@+id/appCompatTextView2"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/llAddRecordCategory"
+      app:layout_constraintEnd_toStartOf="@+id/tvAddRecordCurrency"
+      app:layout_constraintStart_toEndOf="@+id/ivAddRecordType"
+      app:layout_constraintTop_toBottomOf="@+id/btnAddRecordIncome"
       tools:text="1234556" />
 
     <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/appCompatTextView"
+      android:id="@+id/tvAddRecordCurrency"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginEnd="8dp"
@@ -252,6 +276,32 @@
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toEndOf="@+id/btnDeleteAddRecord"
       app:layout_constraintTop_toTopOf="@+id/btnDeleteAddRecord" />
+
+    <LinearLayout
+      android:id="@+id/llAddRecordCategory"
+      android:layout_width="wrap_content"
+      android:orientation="vertical"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:gravity="center"
+      android:layout_marginBottom="16dp"
+      app:layout_constraintBottom_toTopOf="@+id/guideline3"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"/>
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddRecordLLCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income"/>
+
+    </LinearLayout>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

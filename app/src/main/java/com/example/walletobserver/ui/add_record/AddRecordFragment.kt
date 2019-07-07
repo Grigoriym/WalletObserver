@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 
 import com.example.walletobserver.R
+import com.example.walletobserver.util.GlideApp
+import com.example.walletobserver.util.GlideModule
 import kotlinx.android.synthetic.main.fragment_add_record.*
 import timber.log.Timber
 
@@ -23,6 +26,20 @@ class AddRecordFragment : Fragment() {
     Timber.d("AddRecordFragment - onViewCreated")
 
     initButtons()
+    initViews()
+  }
+
+  private fun initViews() {
+    btnAddRecordIncome.setOnClickListener {
+      GlideApp.with(this)
+        .load(ContextCompat.getDrawable(this.context!!, R.drawable.ic_add_24dp))
+        .into(ivAddRecordType)
+    }
+    btnAddRecordExpense.setOnClickListener {
+      GlideApp.with(this)
+        .load(ContextCompat.getDrawable(this.context!!, R.drawable.ic_remove_24dp))
+        .into(ivAddRecordType)
+    }
   }
 
   private fun initButtons() {
