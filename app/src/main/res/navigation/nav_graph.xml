@@ -47,6 +47,16 @@
     android:id="@+id/addRecordFragment"
     android:name="com.example.walletobserver.ui.add_record.AddRecordFragment"
     android:label="Add Record"
-    tools:layout="@layout/fragment_add_record" />
+    tools:layout="@layout/fragment_add_record" >
+    <action
+      android:id="@+id/nextFragment"
+      app:destination="@id/chooseCategoryFragment" />
+  </fragment>
+
+  <fragment
+    android:id="@+id/chooseCategoryFragment"
+    android:name="com.example.walletobserver.ui.choose_category.ChooseCategoryFragment"
+    android:label="Choose Category"
+    tools:layout="@layout/fragment_choose_category" />
 
 </navigation>
