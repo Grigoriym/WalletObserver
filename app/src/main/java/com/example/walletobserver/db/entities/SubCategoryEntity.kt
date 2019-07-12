@@ -2,9 +2,8 @@ package com.example.walletobserver.db.entities
 
 import androidx.room.Entity
 
-@Entity(tableName = "category_entity")
-data class CategoryEntity(
+@Entity(tableName = "sub_category_name")
+data class SubCategoryEntity(
   val name: String? = null,
-  val subCategoryEntity: SubCategoryEntity,
   val icon: String? = null
 )
