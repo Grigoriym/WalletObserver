@@ -89,7 +89,7 @@ dependencies {
   implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02")
   implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02")
 
-  implementation("com.google.android.material:material:1.1.0-alpha07")
+  implementation("com.google.android.material:material:1.1.0-alpha08")
 
 //    implementation("com.squareup.retrofit2:retrofit:2.6.0")
 //    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
