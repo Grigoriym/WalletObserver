@@ -1,19 +1,18 @@
 package com.example.walletobserver.db.entities
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "record_entity")
 data class RecordEntity(
-  @PrimaryKey @ColumnInfo(name = "id") val recordId: String = UUID.randomUUID().toString(),
-//  val categoryEntity: CategoryEntity? = null,
+  @PrimaryKey @ColumnInfo(name = "record_id") var recordId: String = UUID.randomUUID().toString(),
+  @Embedded var categoryEntity: CategoryEntity,
 //  val recordTypeEntity: RecordTypeEntity? = null,
-  val amount: Double? = null,
-  val currency: String? = null,
-  val note: String? = null,
-  val payee: String? = null
+  @ColumnInfo(name = "record_amount") var amount: Double,
+  @ColumnInfo(name = "record_currency") var currency: String,
+  @ColumnInfo(name = "record_note") var note: String,
+  @ColumnInfo(name = "record_payee") var payee: String
 )
-
-//https://android.jlelse.eu/android-room-using-kotlin-f6cc0a05bf23
