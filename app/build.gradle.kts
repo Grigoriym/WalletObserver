@@ -75,8 +75,8 @@ dependencies {
   implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.40")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
 
-  implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-alpha06")
-  implementation("androidx.navigation:navigation-ui-ktx:2.1.0-alpha06")
+  implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
+  implementation("androidx.navigation:navigation-ui-ktx:2.1.0-beta02")
 
   implementation("androidx.appcompat:appcompat:1.1.0-rc01")
   implementation("androidx.core:core-ktx:1.2.0-alpha02")
