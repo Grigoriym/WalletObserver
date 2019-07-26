@@ -78,7 +78,7 @@ android {
 dependencies {
   implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-  implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.40")
+  implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.41")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
 
   implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
@@ -116,6 +116,9 @@ dependencies {
   implementation("org.koin:koin-android:2.0.1")
   implementation("org.koin:koin-android-scope:2.0.1")
   implementation("org.koin:koin-android-viewmodel:2.0.1")
+
+  implementation("io.reactivex.rxjava2:rxjava:2.2.4")
+  implementation("io.reactivex.rxjava2:rxandroid:2.1.0")
 
   testImplementation("junit:junit:4.13-beta-3")
   androidTestImplementation("androidx.test:runner:1.2.0")

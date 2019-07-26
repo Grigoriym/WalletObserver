@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.walletobserver.R
-import com.example.walletobserver.ui.MainActivity
 import com.example.walletobserver.ui.initial_settings.InitialSettingsActivity
 import com.example.walletobserver.util.PrefsManager
 import com.example.walletobserver.util.extensions.launchActivity
@@ -41,7 +40,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 
         val total = vpIntro.adapter?.count ?: 1
         if (position == (total - 1)) {
-          btnIntroNext.text = "Let's Go!"
+          btnIntroNext.text = "Go!"
         } else {
           btnIntroNext.text = "Next"
         }
@@ -66,7 +65,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
         "Next" -> {
           vpIntro.setCurrentItem(getNextPossibleItemIndex(1), true)
         }
-        "Let's Go!" -> finishIntro()
+        "Go!" -> finishIntro()
       }
 
     }
