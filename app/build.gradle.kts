@@ -1,6 +1,7 @@
 import com.android.build.gradle.api.ApplicationVariant
 import com.android.build.gradle.api.BaseVariantOutput
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 plugins {
   id("com.android.application")
@@ -61,7 +62,12 @@ android {
     isExperimental = true
   }
 
-  buildToolsVersion = "28.0.3"
+  kotlinOptions{
+    val options = this as KotlinJvmOptions
+    options.jvmTarget = "1.8"
+  }
+
+  buildToolsVersion = "29.0.1"
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
