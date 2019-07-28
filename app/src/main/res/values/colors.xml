@@ -11,6 +11,10 @@
 
   <color name="splashBackground">#605a5a</color>
 
+  <!--Custom colors-->
+
+  <!--Intro-->
+
   <color name="bg_intro_screen_1">#f64c73</color>
   <color name="bg_intro_screen_2">#20d2bb</color>
   <color name="bg_intro_screen_3">#3395ff</color>

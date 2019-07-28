@@ -62,6 +62,8 @@ android {
     isExperimental = true
   }
 
+  dataBinding.isEnabled = true
+
   kotlinOptions{
     val options = this as KotlinJvmOptions
     options.jvmTarget = "1.8"
@@ -91,6 +93,8 @@ dependencies {
 //    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
 
 //    implementation("com.google.code.gson:gson:2.8.5")
+
+  implementation("com.udojava:EvalEx:2.0")
 
   implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02")
   implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02")

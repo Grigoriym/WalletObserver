@@ -9,7 +9,8 @@ import com.example.walletobserver.db.entities.RecordEntity
 
 @Database(
   entities = [RecordEntity::class],
-  version = 1
+  version = 1,
+  exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
   abstract fun recordDao(): RecordDAO
