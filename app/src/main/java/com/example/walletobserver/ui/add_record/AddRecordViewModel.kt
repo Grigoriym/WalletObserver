@@ -8,6 +8,8 @@ import timber.log.Timber
 import java.math.BigDecimal
 import kotlin.math.roundToInt
 
+//todo make it like in other wallet-like apps (or in iphone, lol)
+
 class AddRecordViewModel : ViewModel() {
 
   private val _currentExpression = MutableLiveData<String>()
@@ -66,15 +68,14 @@ class AddRecordViewModel : ViewModel() {
       if (!isCommaAddedToExpressions) {
         Timber.d("Seventh stage")
         if (_currentExpression.value == null) {
-          Timber.d("Eighth stage")
           _currentExpression.postValue(addedValue)
+          Timber.d("Eighth stage - ${_currentExpression.value}")
         } else {
-          Timber.d("Ninth stage")
           _currentExpression.postValue(_currentExpression.value + addedValue)
+          Timber.d("Ninth stage - ${_currentExpression.value}")
         }
       }
     }
-    _result.postValue(_currentExpression.value)
   }
 
   fun onClearExpression() {

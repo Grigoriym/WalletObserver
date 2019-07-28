@@ -28,7 +28,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="end"
-        android:text="@{viewModel.result}"
+        android:text="@{viewModel.currentExpression}"
         android:textColor="@android:color/black"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
