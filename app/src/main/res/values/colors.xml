@@ -13,6 +13,11 @@
 
   <!--Custom colors-->
 
+  <color name="operators_pad_background">#2E7D32</color>
+  <color name="equals_background">#388E3C</color>
+  <color name="dark_operators_pad_background">#1B5E20</color>
+  <color name="numbers_background">#43A047</color>
+
   <!--Intro-->
 
   <color name="bg_intro_screen_1">#f64c73</color>
