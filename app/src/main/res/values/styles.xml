@@ -25,6 +25,7 @@
   </style>
 
   <style name="PadItem.Operator" parent="PadItem">
+    <item name="android:textSize">24sp</item>
     <item name="android:background">@drawable/operator_item_selector</item>
   </style>
 

@@ -20,6 +20,10 @@ class AddRecordViewModel : ViewModel() {
   val result: LiveData<String>
     get() = _result
 
+  private val _failure = MutableLiveData<String>()
+  val failure: LiveData<String>
+    get() = _failure
+
   private var isNumberPositive = true
 
   private val STRING_COMMA = "."
@@ -27,6 +31,17 @@ class AddRecordViewModel : ViewModel() {
   private val SCIENTIFIC_NOTATION_CHAR = "E"
   private val INFINITY = "Infinity"
   private val validOperators = listOf("+", "-", "/", "*")
+
+  fun newOnOperatorAdd(addedValue: String) {
+    if (currentExpressionIsInvalid() &&
+      (validOperators.contains(addedValue) || STRING_COMMA == addedValue || PERCENTAGE == addedValue)
+    ) {
+      Timber.d("newOnOperatorAdd - 001")
+    } else {
+      Timber.d("newOnOperatorAdd - 002")
+      _currentExpression.postValue(addedValue)
+    }
+  }
 
   fun onOperatorAdd(addedValue: String) {
     if (currentExpressionIsInvalid() &&

@@ -12,7 +12,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.walletobserver.R
 import com.example.walletobserver.databinding.FragmentAddRecordNewBinding
 import com.example.walletobserver.util.GlideApp
+import com.example.walletobserver.util.extensions.showSnackbar
 import kotlinx.android.synthetic.main.fragment_add_record.*
+import kotlinx.android.synthetic.main.fragment_add_record.llAddRecordCategory
+import kotlinx.android.synthetic.main.fragment_add_record.tvAddRecordLLCategory
+import kotlinx.android.synthetic.main.fragment_add_record_new.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import timber.log.Timber
@@ -39,7 +43,6 @@ class AddRecordFragment : Fragment(), KoinComponent {
     Timber.d("AddRecordFragment - onViewCreated")
 
 //    checkIv()
-//    initButtons()
 //    initViews()
 
     newInit()
@@ -48,13 +51,21 @@ class AddRecordFragment : Fragment(), KoinComponent {
   private fun newInit() {
     viewModel.apply {
       result.observe(this@AddRecordFragment,
-        Observer{
+        Observer {
           Timber.d("Observer result - ${result.value}")
         })
       currentExpression.observe(this@AddRecordFragment,
         Observer {
           Timber.d("Observer currentExpression - ${currentExpression.value}")
         })
+      failure.observe(this@AddRecordFragment,
+        Observer {
+          clAddRecord.showSnackbar(it)
+        })
+    }
+
+    llAddRecordCategory.setOnClickListener {
+      findNavController().navigate(AddRecordFragmentDirections.nextFragment())
     }
   }
 
@@ -89,46 +100,6 @@ class AddRecordFragment : Fragment(), KoinComponent {
     }
 
     tvAddRecordLLCategory.text = "None"
-  }
-
-  private fun initButtons() {
-    btnZeroAddRecord.setOnClickListener {
-      changeTvText("0")
-    }
-    btnOneAddRecord.setOnClickListener {
-      changeTvText("1")
-    }
-    btnTwoAddRecord.setOnClickListener {
-      changeTvText("2")
-    }
-    btnThreeAddRecord.setOnClickListener {
-      changeTvText("3")
-    }
-    btnFourAddRecord.setOnClickListener {
-      changeTvText("4")
-    }
-    btnFiveAddRecord.setOnClickListener {
-      changeTvText("5")
-    }
-    btnSixAddRecord.setOnClickListener {
-      changeTvText("6")
-    }
-    btnSevenAddRecord.setOnClickListener {
-      changeTvText("7")
-    }
-    btnEightAddRecord.setOnClickListener {
-      changeTvText("8")
-    }
-    btnNineAddRecord.setOnClickListener {
-      changeTvText("9")
-    }
-    btnDeleteAddRecord.setOnClickListener {
-      tvAddRecord.text = tvAddRecord.text.dropLast(1)
-    }
-  }
-
-  private fun changeTvText(value: String) {
-    tvAddRecord.text = "${tvAddRecord.text}$value"
   }
 
 }
