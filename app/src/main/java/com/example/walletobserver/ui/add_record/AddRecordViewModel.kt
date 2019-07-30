@@ -1,8 +1,10 @@
 package com.example.walletobserver.ui.add_record
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.walletobserver.util.extensions.gone
 import com.udojava.evalex.Expression
 import timber.log.Timber
 import java.math.BigDecimal
@@ -32,14 +34,24 @@ class AddRecordViewModel : ViewModel() {
   private val INFINITY = "Infinity"
   private val validOperators = listOf("+", "-", "/", "*")
 
-  fun newOnOperatorAdd(addedValue: String) {
+  private var currentViewOperatorClicked: View? = null
+
+  fun newOnOperatorAdd(addedValue: String, view: View) {
     if (currentExpressionIsInvalid() &&
       (validOperators.contains(addedValue) || STRING_COMMA == addedValue || PERCENTAGE == addedValue)
     ) {
       Timber.d("newOnOperatorAdd - 001")
     } else {
       Timber.d("newOnOperatorAdd - 002")
-      _currentExpression.postValue(addedValue)
+      if (validOperators.contains(addedValue)) {
+        Timber.d("newOnOperatorAdd - 003 - validOperator")
+        currentViewOperatorClicked = view
+        view.gone() //test
+        _currentExpression.value = addedValue
+
+      }
+      _currentExpression.value = addedValue
+      _result.value = _currentExpression.value
     }
   }
 

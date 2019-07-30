@@ -42,9 +42,6 @@ class AddRecordFragment : Fragment(), KoinComponent {
     super.onViewCreated(view, savedInstanceState)
     Timber.d("AddRecordFragment - onViewCreated")
 
-//    checkIv()
-//    initViews()
-
     newInit()
   }
 
@@ -67,38 +64,6 @@ class AddRecordFragment : Fragment(), KoinComponent {
     llAddRecordCategory.setOnClickListener {
       findNavController().navigate(AddRecordFragmentDirections.nextFragment())
     }
-  }
-
-  private fun checkIv() {
-    if (ivAddRecordType.id == R.drawable.ic_add_24dp) {
-      btnAddRecordExpense.isEnabled = false
-      btnAddRecordIncome.isEnabled = true
-    } else {
-      btnAddRecordExpense.isEnabled = true
-      btnAddRecordIncome.isEnabled = false
-    }
-  }
-
-  private fun initViews() {
-    btnAddRecordIncome.setOnClickListener {
-      btnAddRecordExpense.isEnabled = true
-      btnAddRecordIncome.isEnabled = false
-      GlideApp.with(this)
-        .load(ContextCompat.getDrawable(this.context!!, R.drawable.ic_add_24dp))
-        .into(ivAddRecordType)
-    }
-    btnAddRecordExpense.setOnClickListener {
-      btnAddRecordExpense.isEnabled = false
-      btnAddRecordIncome.isEnabled = true
-      GlideApp.with(this)
-        .load(ContextCompat.getDrawable(this.context!!, R.drawable.ic_remove_24dp))
-        .into(ivAddRecordType)
-    }
-
-    llAddRecordCategory.setOnClickListener {
-      findNavController().navigate(AddRecordFragmentDirections.nextFragment())
-    }
-
     tvAddRecordLLCategory.text = "None"
   }
 
