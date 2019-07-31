@@ -16,8 +16,28 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/clAddRecord"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+      <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_add_24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAddRecordOperationResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAddRecordOperationResult" />
 
       <TextView
         android:id="@+id/tvAddRecordOperationResult"
@@ -31,33 +51,111 @@
         android:text="@{viewModel.currentExpression}"
         android:textColor="@android:color/black"
         app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="15" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+      <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowAddRecordOperations"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:constraint_referenced_ids="tvAddRecordExpenseIncome,tvAddRecordTransfer"
+        app:flow_firstHorizontalStyle="spread"
+        app:flow_horizontalGap="8dp"
+        app:flow_horizontalStyle="spread"
+        app:flow_maxElementsWrap="2"
+        app:flow_verticalStyle="spread"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintBottom_toTopOf="@+id/llAddRecordCategory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+      <TextView
+        android:id="@+id/tvAddRecordExpenseIncome"
+        style="@style/PadItem.Operations"
+        android:onClick="@{() -> viewModel.onExpressionSignChange()}"
+        android:text="Expense/Income"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/tvAddRecordTransfer"
+        style="@style/PadItem.Operations"
+        android:text="Transfer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <LinearLayout
+        android:id="@+id/llAddRecordCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Category" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tvAddRecordLLCategory"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          tools:text="Income" />
+
+      </LinearLayout>
 
       <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20" />
+        app:layout_constraintGuide_percent="0.60" />
 
       <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowAddRecordLeft"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvAddRecordAc, tvAddRecordPlusMinusSwitch,tvAddRecordPercentage,
-tvAddRecordDivide, tvAddRecordSeven, tvAddRecordEight,tvAddRecordNine, tvAddRecordMultiply,
-tvAddRecordFour, tvAddRecordFive, tvAddRecordSix, tvAddRecordPlus, tvAddRecordOne, tvAddRecordTwo,
-tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
+        android:layout_marginEnd="0dp"
+        app:constraint_referenced_ids="
+        tvAddRecordSeven, tvAddRecordEight, tvAddRecordNine,
+        tvAddRecordFour, tvAddRecordFive, tvAddRecordSix,
+        tvAddRecordOne, tvAddRecordTwo, tvAddRecordThree,
+        tvAddRecordZero, tvAddRecordComma, tvAddRecordAc"
         app:flow_firstHorizontalStyle="spread"
         app:flow_horizontalStyle="spread"
-        app:flow_maxElementsWrap="4"
+        app:flow_maxElementsWrap="3"
         app:flow_verticalStyle="spread"
         app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/flow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
@@ -67,41 +165,9 @@ tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
         android:onClick="@{() -> viewModel.onClearExpression()}"
         android:text="@string/ac"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-      <TextView
-        android:id="@+id/tvAddRecordPlusMinusSwitch"
-        style="@style/PadItem.Main"
-        android:onClick="@{() -> viewModel.onExpressionSignChange()}"
-        android:text="@string/value_update"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <TextView
-        android:id="@+id/tvAddRecordPercentage"
-        style="@style/PadItem.Main"
-        android:onClick="@{() -> viewModel.onOperatorAdd(@string/percentage)}"
-        android:text="@string/percentage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <TextView
-        android:id="@+id/tvAddRecordDivide"
-        style="@style/PadItem.Operator"
-        android:onClick="@{() -> viewModel.onOperatorAdd(@string/divide_operator)}"
-        android:text="@string/divide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <!--Second Pad Row-->
 
       <TextView
         android:id="@+id/tvAddRecordSeven"
@@ -134,18 +200,6 @@ tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
         app:layout_constraintTop_toTopOf="parent" />
 
       <TextView
-        android:id="@+id/tvAddRecordMultiply"
-        style="@style/PadItem.Operator"
-        android:onClick="@{() -> viewModel.onOperatorAdd(@string/multiply_expression)}"
-        android:text="@string/multiply_expression"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <!--Third Pad Row-->
-
-      <TextView
         android:id="@+id/tvAddRecordFour"
         style="@style/PadItem.Number"
         android:onClick="@{() -> viewModel.onOperatorAdd(@string/four)}"
@@ -174,18 +228,6 @@ tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-      <TextView
-        android:id="@+id/tvAddRecordPlus"
-        style="@style/PadItem.Operator"
-        android:onClick="@{() -> viewModel.onOperatorAdd(@string/plus)}"
-        android:text="@string/plus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <!--Fourth Pad Row-->
 
       <TextView
         android:id="@+id/tvAddRecordOne"
@@ -218,18 +260,6 @@ tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
         app:layout_constraintTop_toTopOf="parent" />
 
       <TextView
-        android:id="@+id/tvAddRecordMinus"
-        style="@style/PadItem.Operator"
-        android:onClick="@{() -> viewModel.onOperatorAdd(@string/minus)}"
-        android:text="@string/minus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-      <!--Fifth Pad Row-->
-
-      <TextView
         android:id="@+id/tvAddRecordZero"
         style="@style/PadItem.Number"
         android:onClick="@{() -> viewModel.onOperatorAdd(@string/zero)}"
@@ -249,15 +279,71 @@ tvAddRecordThree, tvAddRecordMinus, tvAddRecordZero, tvAddRecordComma"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+      <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="tvAddRecordPlus, tvAddRecordMinus, tvAddRecordMultiply,
+        tvAddRecordDivide,tvAddRecordEquals"
+        app:flow_firstHorizontalStyle="spread"
+        app:flow_horizontalStyle="spread"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalStyle="spread"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+      <TextView
+        android:id="@+id/tvAddRecordDivide"
+        style="@style/PadItem.Operator"
+        android:onClick="@{() -> viewModel.onOperatorAdd(@string/divide_operator)}"
+        android:text="@string/divide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
       <TextView
         android:id="@+id/tvAddRecordEquals"
-        style="@style/PadItem.Main"
+        style="@style/PadItem.Operator"
         android:onClick="@{() -> viewModel.onCalculateResult()}"
         android:text="@string/equals"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvAddRecordComma"
-        app:layout_constraintTop_toBottomOf="@id/tvAddRecordThree" />
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+      <TextView
+        android:id="@+id/tvAddRecordMinus"
+        style="@style/PadItem.Operator"
+        android:onClick="@{() -> viewModel.onOperatorAdd(@string/minus)}"
+        android:text="@string/minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/tvAddRecordPlus"
+        style="@style/PadItem.Operator"
+        android:onClick="@{() -> viewModel.onOperatorAdd(@string/plus)}"
+        android:text="@string/plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/tvAddRecordMultiply"
+        style="@style/PadItem.Operator"
+        android:onClick="@{() -> viewModel.onOperatorAdd(@string/multiply_expression)}"
+        android:text="@string/multiply_expression"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

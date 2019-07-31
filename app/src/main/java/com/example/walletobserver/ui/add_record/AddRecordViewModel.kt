@@ -20,6 +20,10 @@ class AddRecordViewModel : ViewModel() {
   val result: LiveData<String>
     get() = _result
 
+  private val _failure = MutableLiveData<String>()
+  val failure: LiveData<String>
+    get() = _failure
+
   private var isNumberPositive = true
 
   private val STRING_COMMA = "."
@@ -116,7 +120,6 @@ class AddRecordViewModel : ViewModel() {
     } else {
       val newCurrentExpression = if (isNumberPositive) "-${_currentExpression.value}"
       else _currentExpression.value!!.substring(1, _currentExpression.value!!.length)
-
       _currentExpression.postValue(newCurrentExpression)
       isNumberPositive = !isNumberPositive
     }

@@ -11,7 +11,7 @@
 
   <color name="splashBackground">#605a5a</color>
 
-  <!--Custom colors-->
+  <!--Pad colors-->
 
   <color name="operators_pad_background">#2E7D32</color>
   <color name="equals_background">#388E3C</color>
