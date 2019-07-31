@@ -34,4 +34,9 @@
     <item name="android:background">@drawable/number_item_selector</item>
   </style>
 
+  <style name="PadItem.Operations" parent="PadItem">
+    <item name="android:textSize">20sp</item>
+    <item name="android:background">@drawable/number_item_selector</item>
+  </style>
+
 </resources>
