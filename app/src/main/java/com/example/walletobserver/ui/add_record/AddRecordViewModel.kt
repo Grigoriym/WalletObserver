@@ -9,6 +9,7 @@ import java.math.BigDecimal
 import kotlin.math.roundToInt
 
 //todo make it like in other wallet-like apps (or in iphone, lol)
+//todo learn databinding, there is a lot to learn as I can see
 
 class AddRecordViewModel : ViewModel() {
 
