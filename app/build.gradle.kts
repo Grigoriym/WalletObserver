@@ -62,6 +62,8 @@ android {
     isExperimental = true
   }
 
+  dataBinding.isEnabled = true
+
   kotlinOptions{
     val options = this as KotlinJvmOptions
     options.jvmTarget = "1.8"
@@ -78,7 +80,7 @@ android {
 dependencies {
   implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-  implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.40")
+  implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.41")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
 
   implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
@@ -92,10 +94,12 @@ dependencies {
 
 //    implementation("com.google.code.gson:gson:2.8.5")
 
+  implementation("com.udojava:EvalEx:2.0")
+
   implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02")
   implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02")
 
-  implementation("com.google.android.material:material:1.1.0-alpha08")
+  implementation("com.google.android.material:material:1.1.0-alpha09")
 
 //    implementation("com.squareup.retrofit2:retrofit:2.6.0")
 //    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
@@ -116,6 +120,9 @@ dependencies {
   implementation("org.koin:koin-android:2.0.1")
   implementation("org.koin:koin-android-scope:2.0.1")
   implementation("org.koin:koin-android-viewmodel:2.0.1")
+
+  implementation("io.reactivex.rxjava2:rxjava:2.2.4")
+  implementation("io.reactivex.rxjava2:rxandroid:2.1.0")
 
   testImplementation("junit:junit:4.13-beta-3")
   androidTestImplementation("androidx.test:runner:1.2.0")

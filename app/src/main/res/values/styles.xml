@@ -11,4 +11,32 @@
     <item name="android:windowBackground">@color/splashBackground</item>
   </style>
 
+  <!--Pad items-->
+  <style name="PadItem" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <item name="android:layout_width">0dp</item>
+    <item name="android:layout_height">0dp</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <style name="PadItem.Main" parent="PadItem">
+    <item name="android:background">@drawable/pad_item_selector</item>
+    <item name="android:textSize">25sp</item>
+  </style>
+
+  <style name="PadItem.Operator" parent="PadItem">
+    <item name="android:textSize">24sp</item>
+    <item name="android:background">@drawable/operator_item_selector</item>
+  </style>
+
+  <style name="PadItem.Number" parent="PadItem">
+    <item name="android:textSize">30sp</item>
+    <item name="android:background">@drawable/number_item_selector</item>
+  </style>
+
+  <style name="PadItem.Operations" parent="PadItem">
+    <item name="android:textSize">20sp</item>
+    <item name="android:background">@drawable/number_item_selector</item>
+  </style>
+
 </resources>

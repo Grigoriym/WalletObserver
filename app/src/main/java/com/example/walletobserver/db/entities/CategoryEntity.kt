@@ -11,3 +11,4 @@ data class CategoryEntity(
   @ColumnInfo(name = "cat_name") var name: String,
   @ColumnInfo(name = "cat_icon") var icon: String
 )
+
