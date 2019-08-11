@@ -1,18 +1,22 @@
 package com.example.walletobserver.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.walletobserver.db.entities.SubCategoryEntity
 
 @Dao
 interface SubCategoryDao {
 
-  @Insert
-  fun insert(entity: SubCategoryEntity)
+  @Query("SELECT * FROM sub_ctgry_table")
+  fun getAllSubCategories(): LiveData<List<SubCategoryEntity>>
 
-  @Update
-  fun update(entity: SubCategoryEntity)
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  fun insertList(subCategories: List<SubCategoryEntity>)
+
+  @Update(onConflict = OnConflictStrategy.REPLACE)
+  fun update(subCategory: SubCategoryEntity)
 
   @Delete
-  fun delete(entity: SubCategoryEntity)
+  fun delete(subCategory: SubCategoryEntity)
 
 }

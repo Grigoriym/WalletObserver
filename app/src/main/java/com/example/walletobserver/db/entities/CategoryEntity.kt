@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(
-  tableName = "category_entity"
+  tableName = "category_table"
 )
 data class CategoryEntity(
   @PrimaryKey

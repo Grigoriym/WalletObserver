@@ -8,6 +8,7 @@ import com.example.walletobserver.db.entities.CategoryEntity
 import com.example.walletobserver.util.KOIN_APP_DB
 import com.example.walletobserver.util.KOIN_CATEGORY_DAO
 import com.example.walletobserver.util.KOIN_RECODR_DAO
+import com.example.walletobserver.util.KOIN_SUB_CATEGORY_DAO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,4 +42,5 @@ val dbModule = module {
 
   single(named(KOIN_CATEGORY_DAO)) { get<AppDatabase>(named(KOIN_APP_DB)).categoryDao() }
   single(named(KOIN_RECODR_DAO)) { get<AppDatabase>(named(KOIN_APP_DB)).recordDao() }
+  single(named(KOIN_SUB_CATEGORY_DAO)) { get <AppDatabase>(named(KOIN_APP_DB)).subCategoryDao() }
 }
