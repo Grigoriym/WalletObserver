@@ -4,18 +4,24 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(
-  tableName = "sub_category_name",
-  foreignKeys = [ForeignKey(
-    entity = CategoryEntity::class,
-    parentColumns = ["cat_id"],
-    childColumns = ["sub_cat_id"],
-    onDelete = ForeignKey.CASCADE
-  )]
+  tableName = "sub_ctgry_table"
 )
 data class SubCategoryEntity(
-  @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "sub_cat_id") var id: Long = 0,
-  @ColumnInfo(name = "sub_cat_name") var name: String,
-  @ColumnInfo(name = "sub_cat_icon") var icon: String
-)
+  @PrimaryKey
+  @ColumnInfo(name = "sub_ctgry_id")
+  val id: String = UUID.randomUUID().toString(),
+  @ColumnInfo(name = "sub_ctgry_name")
+  val name: String?,
+  @ColumnInfo(name = "sub_ctgry_icon")
+  val icon: String?
+) {
+  companion object {
+    fun dummyObject() = SubCategoryEntity(
+      name = "",
+      icon = ""
+    )
+  }
+}
