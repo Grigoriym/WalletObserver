@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(
-  tableName = "record_entity"
+  tableName = "record_table"
 )
 data class RecordEntity(
   @PrimaryKey

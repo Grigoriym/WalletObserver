@@ -2,6 +2,7 @@ package com.example.walletobserver
 
 import android.app.Application
 import com.example.walletobserver.di.dbModule
+import com.example.walletobserver.di.repositoryModule
 import com.example.walletobserver.di.utilModule
 import com.example.walletobserver.di.viewModelFactoryModule
 import org.koin.android.ext.koin.androidContext
@@ -25,7 +26,14 @@ class App : Application() {
   private fun initKoin() {
     startKoin {
       androidContext(this@App)
-      modules(listOf(utilModule, viewModelFactoryModule, dbModule))
+      modules(
+        listOf(
+          utilModule,
+          viewModelFactoryModule,
+          dbModule,
+          repositoryModule
+        )
+      )
     }
   }
 }

@@ -22,9 +22,9 @@ val dbModule = module {
       androidApplication(),
       AppDatabase::class.java, "wallet-observer.db"
     )
-      .addCallback(
-        get(named("dbCallback"))
-      )
+//      .addCallback(
+//        get(named("dbCallback"))
+//      )
       .build()
   }
 
@@ -33,12 +33,7 @@ val dbModule = module {
       override fun onCreate(db: SupportSQLiteDatabase) {
         super.onCreate(db)
         CoroutineScope(Dispatchers.IO).launch {
-          get<AppDatabase>(named("appDb")).categoryDao().insertListOfCategories(
-            listOf(
-              CategoryEntity.dummyObject(),
-              CategoryEntity.dummyObject()
-            )
-          )
+
         }
       }
     }

@@ -15,9 +15,4 @@ interface SubCategoryDao {
   @Delete
   fun delete(entity: SubCategoryEntity)
 
-//  @Query("SELECT * FROM sub_category_name WHERE")
-
-  @Query("SELECT * FROM sub_category_name")
-  fun getAllSubCategories(): List<SubCategoryEntity>
-
 }

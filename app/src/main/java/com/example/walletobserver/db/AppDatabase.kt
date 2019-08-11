@@ -13,8 +13,7 @@ import com.example.walletobserver.db.entities.SubCategoryEntity
   entities = [
     RecordEntity::class,
     CategoryEntity::class,
-    SubCategoryEntity::class,
-    DbDataHolder.RecordCategoryEntity::class
+    SubCategoryEntity::class
   ],
   version = 1,
   exportSchema = false
