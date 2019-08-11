@@ -7,7 +7,13 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(
-  tableName = "sub_ctgry_table"
+  tableName = "sub_ctgry_table",
+  foreignKeys = [
+    ForeignKey(
+      entity = CategoryEntity::class,
+      parentColumns = ["category_id"],
+      childColumns = ["category_id"]
+    )]
 )
 data class SubCategoryEntity(
   @PrimaryKey
@@ -16,12 +22,15 @@ data class SubCategoryEntity(
   @ColumnInfo(name = "sub_ctgry_name")
   val name: String?,
   @ColumnInfo(name = "sub_ctgry_icon")
-  val icon: String?
+  val icon: String? = "",
+  @ColumnInfo(name = "category_id")
+  val categoryId: Long?
 ) {
   companion object {
     fun dummyObject() = SubCategoryEntity(
       name = "",
-      icon = ""
+      icon = "",
+      categoryId = 0
     )
   }
 }

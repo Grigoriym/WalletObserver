@@ -13,3 +13,5 @@ const val KOIN_SUB_CATEGORY_DAO = "koinSubCategoryDao"
 const val KOIN_CATEGORY_REPO = "koinCategoryRepo"
 
 const val KOIN_SUBCATEGORY_REPO = "koinSubCategoryRepo"
+
+const val KOIN_DB_CATEGORIES_PRE_POPULATE = "koinDbCategoriesPrePopulate"

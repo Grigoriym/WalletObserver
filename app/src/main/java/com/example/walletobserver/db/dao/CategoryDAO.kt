@@ -13,7 +13,7 @@ interface CategoryDAO {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
   fun insertList(categories: List<CategoryEntity>)
 
-  @Update(onConflict = OnConflictStrategy.REPLACE)
+  @Update
   fun update(category: CategoryEntity)
 
   @Delete
