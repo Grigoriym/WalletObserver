@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletobserver.R
+import kotlinx.android.synthetic.main.fragment_choose_category.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import timber.log.Timber
 
 class ChooseCategoryFragment : Fragment(), KoinComponent {
 
+  private lateinit var cAdapter: ChooseCategoryAdapter
   private val viewModelFactory: ChooseCategoryViewModelFactory by inject()
   private val viewModel by viewModels<ChooseCategoryViewModel> { viewModelFactory }
 
@@ -26,7 +29,7 @@ class ChooseCategoryFragment : Fragment(), KoinComponent {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     Timber.d("ChooseCategoryFragment - onViewCreated")
-
+    initRecycler()
     viewModelInit()
   }
 
@@ -34,11 +37,21 @@ class ChooseCategoryFragment : Fragment(), KoinComponent {
     viewModel.apply {
       getAllCategories().observe(this@ChooseCategoryFragment, Observer {
         it?.let {
-          println("11111 - ${it.size}")
+          cAdapter.loadItems(it)
         }
       })
     }
     viewModel.loadCategories()
+  }
+
+  private fun initRecycler() {
+    cAdapter = ChooseCategoryAdapter {
+
+    }
+    recyclerCategories.apply {
+      layoutManager = LinearLayoutManager(context)
+      adapter = cAdapter
+    }
   }
 
 }

@@ -12,7 +12,9 @@ import java.util.*
     ForeignKey(
       entity = CategoryEntity::class,
       parentColumns = ["category_id"],
-      childColumns = ["category_id"]
+      childColumns = ["category_id"],
+      onDelete = ForeignKey.CASCADE,
+      onUpdate = ForeignKey.CASCADE
     )]
 )
 data class SubCategoryEntity(
