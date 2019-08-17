@@ -1,17 +1,22 @@
 package com.example.walletobserver.db.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.walletobserver.db.entities.CategoryEntity
 
 @Dao
 interface CategoryDAO {
 
-  @Query("SELECT * FROM category_entity")
-  fun getAllCategories(): List<CategoryEntity>
+  @Query("SELECT * FROM category_table")
+  fun getAllCategories(): LiveData<List<CategoryEntity>>
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insertListOfCategories(categories: List<CategoryEntity>)
+  fun insertList(categories: List<CategoryEntity>)
+
+  @Update
+  fun update(category: CategoryEntity)
+
+  @Delete
+  fun delete(category: CategoryEntity)
+
 }

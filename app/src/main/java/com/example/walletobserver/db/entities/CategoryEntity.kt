@@ -1,14 +1,25 @@
 package com.example.walletobserver.db.entities
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(
-  tableName = "category_entity"
+  tableName = "category_table"
 )
 data class CategoryEntity(
-  @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "cat_id") var id: Long = 0,
-//  @Embedded var subCategoryEntity: SubCategoryEntity?,
-  @ColumnInfo(name = "cat_name") var name: String,
-  @ColumnInfo(name = "cat_icon") var icon: String
-)
+  @PrimaryKey
+  @ColumnInfo(name = "category_id")
+  val id: String = UUID.randomUUID().toString(),
+  @ColumnInfo(name = "category_name") val name: String?,
+  @ColumnInfo(name = "category_icon") val icon: String? = ""
+) {
+  companion object {
+    fun dummyObject() = CategoryEntity(
+      name = "",
+      icon = ""
+    )
+  }
+}
 

@@ -83,11 +83,11 @@ dependencies {
   implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk7", version = "1.3.41")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
 
-  implementation("androidx.navigation:navigation-fragment-ktx:2.1.0-beta02")
-  implementation("androidx.navigation:navigation-ui-ktx:2.1.0-beta02")
+  implementation("androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01")
+  implementation("androidx.navigation:navigation-ui-ktx:2.2.0-alpha01")
 
   implementation("androidx.appcompat:appcompat:1.1.0-rc01")
-  implementation("androidx.core:core-ktx:1.2.0-alpha02")
+  implementation("androidx.core:core-ktx:1.2.0-alpha03")
   implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta2")
 
 //    implementation("androidx.paging:paging-runtime-ktx:2.1.0")
@@ -96,8 +96,8 @@ dependencies {
 
   implementation("com.udojava:EvalEx:2.0")
 
-  implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha02")
-  implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha02")
+  implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03")
+  implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha03")
 
   implementation("com.google.android.material:material:1.1.0-alpha09")
 
