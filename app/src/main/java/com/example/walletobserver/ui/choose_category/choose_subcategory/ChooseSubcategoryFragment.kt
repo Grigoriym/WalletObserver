@@ -1,32 +1,60 @@
 package com.example.walletobserver.ui.choose_category.choose_subcategory
 
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletobserver.R
+import kotlinx.android.synthetic.main.fragment_choose_subcategory.*
+import org.koin.android.ext.android.inject
+import timber.log.Timber
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class ChooseSubcategoryFragment : Fragment() {
+
+  private lateinit var cAdapter: ChooseSubCategoryAdapter
+  private val viewModelFactory: ChooseSubcategoryViewModelFactory by inject()
+  private val viewModel by viewModels<ChooseSubcategoryViewModel> { viewModelFactory }
+  private val args: ChooseSubcategoryFragmentArgs by navArgs()
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_choose_subcategory, container, false)
+  ): View? =
+    inflater.inflate(R.layout.fragment_choose_subcategory, container, false)
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    Timber.d("ChooseSubcategoryFragment - onViewCreated")
+    initRecycler()
+    initViewModel()
   }
 
+  private fun initViewModel() {
+    viewModel.apply {
+      currentCategoryID = args.categoryId
 
+      getSubCategoriesByCategoryId(args.categoryId).observe(
+        this@ChooseSubcategoryFragment,
+        Observer {
+          cAdapter.loadItems(it)
+        }
+      )
+      loadSubcategories(args.categoryId)
+    }
+  }
+
+  private fun initRecycler() {
+    cAdapter = ChooseSubCategoryAdapter {
+
+    }
+    recyclerSubCategories.apply {
+      layoutManager = LinearLayoutManager(context)
+      adapter = cAdapter
+    }
+  }
 }

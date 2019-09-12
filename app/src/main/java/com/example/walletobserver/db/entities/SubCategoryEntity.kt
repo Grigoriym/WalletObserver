@@ -26,13 +26,14 @@ data class SubCategoryEntity(
   @ColumnInfo(name = "sub_ctgry_icon")
   val icon: String? = "",
   @ColumnInfo(name = "category_id")
-  val categoryId: Long?
+  var categoryId: String = ""
 ) {
+
   companion object {
     fun dummyObject() = SubCategoryEntity(
       name = "",
       icon = "",
-      categoryId = 0
+      categoryId = ""
     )
   }
 }
