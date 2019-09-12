@@ -15,6 +15,7 @@ data class CategoryEntity(
   @ColumnInfo(name = "category_name") val name: String?,
   @ColumnInfo(name = "category_icon") val icon: String? = ""
 ) {
+
   companion object {
     fun dummyObject() = CategoryEntity(
       name = "",

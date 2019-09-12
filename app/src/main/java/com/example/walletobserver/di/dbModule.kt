@@ -5,7 +5,10 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.walletobserver.db.AppDatabase
 import com.example.walletobserver.db.dao.CategoryDAO
+import com.example.walletobserver.db.dao.SubCategoryDao
 import com.example.walletobserver.db.listOfCategories
+import com.example.walletobserver.db.listOfSubCategories00
+import com.example.walletobserver.db.listOfSubCategories01
 import com.example.walletobserver.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +36,20 @@ val dbModule = module {
         CoroutineScope(Dispatchers.IO).launch {
           get<CategoryDAO>(named(KOIN_CATEGORY_DAO))
             .insertList(
-              listOfCategories
+              listOfCategories.also {
+                for (i in it.indices) {
+                  when (i) {
+                    0 -> {
+                      get<SubCategoryDao>(named(KOIN_SUB_CATEGORY_DAO))
+                        .insertSubCategoriesForCategory(it[0], listOfSubCategories00)
+                    }
+                    1 -> {
+                      get<SubCategoryDao>(named(KOIN_SUB_CATEGORY_DAO))
+                        .insertSubCategoriesForCategory(it[1], listOfSubCategories01)
+                    }
+                  }
+                }
+              }
             )
         }
       }

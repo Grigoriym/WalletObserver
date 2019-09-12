@@ -13,6 +13,9 @@ interface CategoryDAO {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
   fun insertList(categories: List<CategoryEntity>)
 
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  fun insertCategory(category: CategoryEntity)
+
   @Update
   fun update(category: CategoryEntity)
 

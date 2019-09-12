@@ -15,6 +15,9 @@ class SubCategoryRepository(
 
   fun getAllSubCategories() = allSubCategories
 
+  fun getSubCategoriesByCategoryId(id: String): LiveData<List<SubCategoryEntity>> =
+    subCategoryDao.getSubCategoriesForCategory(id)
+
   suspend fun insertSubCategories(subCategories: List<SubCategoryEntity>) =
     withContext(Dispatchers.IO) {
       subCategoryDao.insertList(subCategories)
