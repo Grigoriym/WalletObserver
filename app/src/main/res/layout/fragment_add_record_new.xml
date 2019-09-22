@@ -7,11 +7,11 @@
 
     <variable
       name="viewModel"
-      type="com.example.walletobserver.ui.add_record.AddRecordViewModel" />
+      type="com.grappim.walletobserver.ui.add_record.AddRecordViewModel" />
 
     <variable
       name="signImage"
-      type="com.example.walletobserver.ui.add_record.AddRecordSignChange" />
+      type="com.grappim.walletobserver.ui.add_record.AddRecordSignChange" />
 
   </data>
 
