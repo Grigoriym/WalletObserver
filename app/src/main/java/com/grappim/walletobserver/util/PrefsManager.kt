@@ -9,10 +9,9 @@ class PrefsManager(
   private val pref = context.getSharedPreferences("welcome", 0)
   private val editor = pref.edit()
 
-  fun setFirstTimeLaunch(isItFirstTime: Boolean) {
-    editor.putBoolean("isItFirstTimeLaunch", isItFirstTime)
-    editor.commit()
-  }
+  fun setFirstTimeLaunch(isItFirstTime: Boolean) =
+    editor.putBoolean("isItFirstTimeLaunch", isItFirstTime).apply()
+
 
   fun isItFirstTimeLaunch(): Boolean =
     pref.getBoolean("isItFirstTimeLaunch", true)
