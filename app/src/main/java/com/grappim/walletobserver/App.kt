@@ -23,6 +23,10 @@ class App : Application() {
     }
   }
 
+  private fun initDagger() {
+//    val appComponent = DaggerAppl
+  }
+
   private fun initKoin() {
     startKoin {
       androidContext(this@App)

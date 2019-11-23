@@ -12,8 +12,8 @@ abstract class SubCategoryDao {
     category: CategoryEntity,
     subCategories: List<SubCategoryEntity>
   ) {
-    for (item in subCategories) {
-      item.categoryId = category.id
+    subCategories.forEach {
+      it.categoryId = category.id
     }
   }
 
