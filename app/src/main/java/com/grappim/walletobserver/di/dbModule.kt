@@ -21,7 +21,7 @@ val dbModule = module {
   single(named(KOIN_APP_DB)) {
     Room.databaseBuilder(
       androidApplication(),
-      AppDatabase::class.java, "wallet-observer.db"
+      AppDatabase::class.java, DB_NAME
     )
       .addCallback(
         get(named(KOIN_DB_CATEGORIES_PRE_POPULATE))

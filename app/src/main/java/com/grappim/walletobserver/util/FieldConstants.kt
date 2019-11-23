@@ -15,3 +15,5 @@ const val KOIN_CATEGORY_REPO = "koinCategoryRepo"
 const val KOIN_SUBCATEGORY_REPO = "koinSubCategoryRepo"
 
 const val KOIN_DB_CATEGORIES_PRE_POPULATE = "koinDbCategoriesPrePopulate"
+
+const val DB_NAME = "wallet-observer.db"
