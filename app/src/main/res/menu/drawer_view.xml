@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
   <item
     android:id="@+id/nav_home"
-    android:title="Home"/>
+    android:title="@string/drawer_home" />
 
   <item
     android:id="@+id/nav_records"
-    android:title="Records"/>
+    android:title="@string/drawer_records" />
 
   <item
     android:id="@+id/nav_debts"
-    android:title="Debts"/>
+    android:title="@string/drawer_debts" />
 
   <item
     android:id="@+id/nav_goals"
-    android:title="Goals"/>
+    android:title="@string/drawer_goals" />
 
   <item
     android:id="@+id/nav_shopping_lists"
-    android:title="Shopping Lists"/>
+    android:title="@string/drawer_shopping_lists" />
 
 </menu>

@@ -25,7 +25,6 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_intro)
-
     init()
   }
 
@@ -40,9 +39,9 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 
         val total = vpIntro.adapter?.count ?: 1
         if (position == (total - 1)) {
-          btnIntroNext.text = "Go!"
+          btnIntroNext.text = getString(R.string.intro_go_exclamation)
         } else {
-          btnIntroNext.text = "Next"
+          btnIntroNext.text = getString(R.string.intro_next)
         }
       }
 
@@ -62,12 +61,11 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
     }
     btnIntroNext.setOnClickListener {
       when (btnIntroNext.text) {
-        "Next" -> {
+        getString(R.string.intro_next) -> {
           vpIntro.setCurrentItem(getNextPossibleItemIndex(1), true)
         }
-        "Go!" -> finishIntro()
+        getString(R.string.intro_go_exclamation) -> finishIntro()
       }
-
     }
   }
 
@@ -78,7 +76,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
 
     llIntro.removeAllViews()
 
-    for (i in 0 until dots.size) {
+    for (i in dots.indices) {
       dots[i] = TextView(this)
       dots[i]?.text = HtmlCompat.fromHtml("&#8226;", HtmlCompat.FROM_HTML_MODE_LEGACY)
       dots[i]?.textSize = 35f
