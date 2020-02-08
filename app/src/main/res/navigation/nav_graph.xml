@@ -8,7 +8,7 @@
   <fragment
     android:id="@+id/homeFragment"
     android:name="com.grappim.walletobserver.ui.home.HomeFragment"
-    android:label="Home"
+    android:label="@string/drawer_home"
     tools:layout="@layout/fragment_home">
     <action
       android:id="@+id/nextFragment"
@@ -18,7 +18,7 @@
   <fragment
     android:id="@+id/recordsFragment"
     android:name="com.grappim.walletobserver.ui.records.RecordsFragment"
-    android:label="Records"
+    android:label="@string/drawer_records"
     tools:layout="@layout/fragment_records">
     <action
       android:id="@+id/nextFragment"
@@ -28,25 +28,25 @@
   <fragment
     android:id="@+id/debtsFragment"
     android:name="com.grappim.walletobserver.ui.debts.DebtsFragment"
-    android:label="Debts"
+    android:label="@string/drawer_debts"
     tools:layout="@layout/fragment_debts" />
 
   <fragment
     android:id="@+id/goalsFragment"
     android:name="com.grappim.walletobserver.ui.goals.GoalsFragment"
-    android:label="Goals"
+    android:label="@string/drawer_goals"
     tools:layout="@layout/fragment_goals" />
 
   <fragment
     android:id="@+id/shoppingListsFragment"
     android:name="com.grappim.walletobserver.ui.shopping_lists.ShoppingListsFragment"
-    android:label="Shopping Lists"
+    android:label="@string/drawer_shopping_lists"
     tools:layout="@layout/fragment_shopping_lists" />
 
   <fragment
     android:id="@+id/addRecordFragment"
     android:name="com.grappim.walletobserver.ui.add_record.AddRecordFragment"
-    android:label="Add Record"
+    android:label="@string/drawer_add_record"
     tools:layout="@layout/fragment_add_record_new">
     <action
       android:id="@+id/nextFragment"

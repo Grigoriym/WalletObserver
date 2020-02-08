@@ -1,7 +1,7 @@
 package com.grappim.walletobserver.ui.initial_settings
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.grappim.walletobserver.R
 import com.grappim.walletobserver.ui.MainActivity
 import com.grappim.walletobserver.util.extensions.launchActivity
@@ -13,8 +13,8 @@ class InitialSettingsActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_initial_settings)
 
-    btnInitialSettingsNext.setOnClickListener {
-      launchActivity<MainActivity> {  }
+    buttonNext.setOnClickListener {
+      launchActivity<MainActivity> { }
       finish()
     }
   }

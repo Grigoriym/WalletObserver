@@ -5,60 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.grappim.walletobserver.databinding.FragmentAddRecordNewBinding
-import com.grappim.walletobserver.util.extensions.showSnackbar
+import com.grappim.walletobserver.R
 import kotlinx.android.synthetic.main.fragment_add_record_new.*
 import org.koin.core.KoinComponent
-import org.koin.core.inject
 import timber.log.Timber
 
 class AddRecordFragment : Fragment(), KoinComponent {
 
-  private val viewModelFactory: AddRecordViewModelFactory by inject()
-  private val viewModel by viewModels<AddRecordViewModel> { viewModelFactory }
-
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? = FragmentAddRecordNewBinding.inflate(
-    inflater,
-    container,
-    false
-  ).apply {
-    lifecycleOwner = this@AddRecordFragment
-    viewModel = this@AddRecordFragment.viewModel
-  }.root
+  ): View? =
+    inflater.inflate(R.layout.fragment_add_record_new, container, false)
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     Timber.d("AddRecordFragment - onViewCreated")
-
-    newInit()
+    initViews()
   }
 
-  private fun newInit() {
-    viewModel.apply {
-      result.observe(this@AddRecordFragment,
-        Observer {
-          Timber.d("Observer result - ${result.value}")
-        })
-      currentExpression.observe(this@AddRecordFragment,
-        Observer {
-          Timber.d("Observer currentExpression - ${currentExpression.value}")
-        })
-      failure.observe(this@AddRecordFragment,
-        Observer {
-          clAddRecord.showSnackbar(it)
-        })
-    }
-
+  private fun initViews() {
     llAddRecordCategory.setOnClickListener {
       findNavController().navigate(AddRecordFragmentDirections.nextFragment())
     }
-    tvAddRecordLLCategory.text = "None"
+    tvAddRecordLLCategory.text = getString(R.string.title_none)
   }
 
 }

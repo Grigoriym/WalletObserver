@@ -29,4 +29,23 @@
   <string name="comma_expression" translatable="false">.</string>
   <string name="equals" translatable="false">=</string>
 
+  <string name="drawer_home">Home</string>
+  <string name="drawer_records">Records</string>
+  <string name="drawer_debts">Debts</string>
+  <string name="drawer_goals">Goals</string>
+  <string name="drawer_shopping_lists">Shopping Lists</string>
+  <string name="drawer_add_record">Add Record</string>
+
+  <string name="intro_go_exclamation">Go!</string>
+  <string name="intro_next">Next</string>
+  <string name="intro_skip">Skip</string>
+
+  <string name="initial_settings_enter_amount_of_money">Enter the amount of money you have now</string>
+
+  <string name="title_welcome_exclamation">Welcome!</string>
+  <string name="title_category">Category</string>
+  <string name="title_transfer">Transfer</string>
+  <string name="title_expense_slash_income">Expense/Income</string>
+  <string name="title_none">None</string>
+
 </resources>

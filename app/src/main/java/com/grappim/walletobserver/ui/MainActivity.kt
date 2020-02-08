@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
     setupNavigation()
   }
 
@@ -54,6 +53,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     return displaySelectedScreen(item.itemId)
   }
 
+  override fun onBackPressed() {
+    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+      drawerLayout.closeDrawer(GravityCompat.START)
+    } else {
+      super.onBackPressed()
+    }
+  }
+
   private fun displaySelectedScreen(itemId: Int): Boolean {
     when (itemId) {
       R.id.nav_home -> navController.navigate(R.id.homeFragment)
@@ -64,13 +71,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     drawerLayout.closeDrawer(GravityCompat.START)
     return true
-  }
-
-  override fun onBackPressed() {
-    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-      drawerLayout.closeDrawer(GravityCompat.START)
-    } else {
-      super.onBackPressed()
-    }
   }
 }
