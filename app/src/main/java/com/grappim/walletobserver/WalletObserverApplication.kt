@@ -5,11 +5,13 @@ import com.grappim.walletobserver.di.dbModule
 import com.grappim.walletobserver.di.repositoryModule
 import com.grappim.walletobserver.di.utilModule
 import com.grappim.walletobserver.di.viewModelFactoryModule
+import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
 
-class App : Application() {
+@HiltAndroidApp
+class WalletObserverApplication : Application() {
 
   override fun onCreate() {
     super.onCreate()
@@ -24,16 +26,16 @@ class App : Application() {
   }
 
   private fun initKoin() {
-    startKoin {
-      androidContext(this@App)
-      modules(
-        listOf(
-          utilModule,
-          viewModelFactoryModule,
-          dbModule,
-          repositoryModule
-        )
-      )
-    }
+//    startKoin {
+//      androidContext(this@WalletObserverApplication)
+//      modules(
+//        listOf(
+//          utilModule,
+//          viewModelFactoryModule,
+//          dbModule,
+//          repositoryModule
+//        )
+//      )
+//    }
   }
 }

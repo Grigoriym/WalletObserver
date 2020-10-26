@@ -5,8 +5,9 @@ import com.grappim.walletobserver.db.dao.RecordDAO
 import com.grappim.walletobserver.db.entities.RecordEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class RecordRepository(
+class RecordRepository @Inject constructor(
   private val recordDao: RecordDAO
 ) {
 

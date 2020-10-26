@@ -2,8 +2,11 @@ package com.grappim.walletobserver.util
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PrefsManager(
+@Singleton
+class PrefsManager @Inject constructor(
   val context: Context
 ) {
 

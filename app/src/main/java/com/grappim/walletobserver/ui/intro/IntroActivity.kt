@@ -13,18 +13,21 @@ import com.grappim.walletobserver.R
 import com.grappim.walletobserver.ui.initial_settings.InitialSettingsActivity
 import com.grappim.walletobserver.util.PrefsManager
 import com.grappim.walletobserver.util.extensions.launchActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_intro.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import javax.inject.Inject
 import kotlin.math.abs
 
-class IntroActivity : AppCompatActivity(), KoinComponent {
+@AndroidEntryPoint
+class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
 
-  private val prefs: PrefsManager by inject()
+  @Inject
+  lateinit var prefsManager: PrefsManager
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_intro)
     init()
   }
 
@@ -116,7 +119,7 @@ class IntroActivity : AppCompatActivity(), KoinComponent {
   }
 
   private fun finishIntro() {
-    prefs.setFirstTimeLaunch(false)
+    prefsManager.setFirstTimeLaunch(false)
     launchActivity<InitialSettingsActivity> { }
     finish()
   }

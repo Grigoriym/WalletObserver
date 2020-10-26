@@ -1,8 +1,8 @@
 package com.grappim.walletobserver.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -11,18 +11,18 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.grappim.walletobserver.R
 import com.google.android.material.navigation.NavigationView
+import com.grappim.walletobserver.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(R.layout.activity_main),
+  NavigationView.OnNavigationItemSelectedListener {
 
   private lateinit var navController: NavController
   private lateinit var appBarConfiguration: AppBarConfiguration
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
     setupNavigation()
   }
 

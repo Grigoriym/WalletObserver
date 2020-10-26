@@ -5,8 +5,9 @@ import com.grappim.walletobserver.db.dao.CategoryDAO
 import com.grappim.walletobserver.db.entities.CategoryEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class CategoryRepository(
+class CategoryRepository @Inject constructor(
   private val categoryDao: CategoryDAO
 ) {
 

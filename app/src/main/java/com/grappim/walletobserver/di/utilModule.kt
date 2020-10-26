@@ -7,10 +7,10 @@ import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 
 val utilModule = module {
-  single { PrefsManager(androidContext()) }
-
-  single {
-
-  }
-  single{DecimalFormatSymbols.getInstance()}
+//  single { PrefsManager(androidContext()) }
+//
+//  single {
+//
+//  }
+//  single{DecimalFormatSymbols.getInstance()}
 }
