@@ -1,24 +1,26 @@
 package com.grappim.walletobserver.ui
 
 import androidx.appcompat.app.AppCompatActivity
+import com.grappim.walletobserver.core.extensions.launchActivity
+import com.grappim.walletobserver.core.storage.PrefsManager
 import com.grappim.walletobserver.ui.intro.IntroActivity
-import com.grappim.walletobserver.util.PrefsManager
-import com.grappim.walletobserver.util.extensions.launchActivity
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class SplashActivity : AppCompatActivity(), KoinComponent {
+@AndroidEntryPoint
+class SplashActivity : AppCompatActivity() {
 
-  private val prefs: PrefsManager by inject()
+    @Inject
+    lateinit var prefs: PrefsManager
 
-  override fun onResume() {
-    super.onResume()
-    prefs.setFirstTimeLaunch(true)//todo needs to be deleted eventually
-    if (!prefs.isItFirstTimeLaunch()) {
-      this.launchActivity<MainActivity> { }
-    } else {
-      this.launchActivity<IntroActivity> { }
+    override fun onResume() {
+        super.onResume()
+        prefs.setFirstTimeLaunch(true)//todo needs to be deleted eventually
+        if (!prefs.isItFirstTimeLaunch()) {
+            this.launchActivity<MainActivity> { }
+        } else {
+            this.launchActivity<IntroActivity> { }
+        }
+        finish()
     }
-    finish()
-  }
 }
