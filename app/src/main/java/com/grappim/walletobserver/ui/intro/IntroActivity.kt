@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.grappim.walletobserver.R
 import com.grappim.walletobserver.core.extensions.launchActivity
 import com.grappim.walletobserver.core.storage.PrefsManager
@@ -25,6 +25,16 @@ class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
     @Inject
     lateinit var prefsManager: PrefsManager
 
+    private val pagerCallback = object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            if (position == (NUM_PAGES - 1)) {
+                btnIntroNext.text = getString(R.string.intro_go_exclamation)
+            } else {
+                btnIntroNext.text = getString(R.string.intro_next)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
@@ -33,31 +43,10 @@ class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
     private fun init() {
         changeStatusBarColor()
 
-        val ipa = IntroPagerAdapter(supportFragmentManager)
+        val ipa = IntroPagerAdapter(this)
         vpIntro.adapter = ipa
-        vpIntro.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageSelected(position: Int) {
-                val total = vpIntro.adapter?.count ?: 1
-                if (position == (total - 1)) {
-                    btnIntroNext.text = getString(R.string.intro_go_exclamation)
-                } else {
-                    btnIntroNext.text = getString(R.string.intro_next)
-                }
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-
-            }
-
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-
-            }
-        })
-        worm_dots_indicator.setViewPager(vpIntro)
+        vpIntro.registerOnPageChangeCallback(pagerCallback)
+        worm_dots_indicator.setViewPager2(vpIntro)
 
         btnIntroSkip.setOnClickListener {
             finishIntro()
@@ -74,14 +63,13 @@ class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
 
     private fun getNextPossibleItemIndex(change: Int): Int {
         val currentIndex = vpIntro.currentItem
-        val total = vpIntro.adapter?.count ?: 1
-        if (currentIndex == (total - 1)) {
+        if (currentIndex == (NUM_PAGES - 1)) {
             return currentIndex
         }
         if (currentIndex + change < 0) {
             return 0
         }
-        return abs((currentIndex + change) % total)
+        return abs((currentIndex + change) % NUM_PAGES)
     }
 
     private fun changeStatusBarColor() {
@@ -102,5 +90,10 @@ class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
         prefsManager.setFirstTimeLaunch(false)
         launchActivity<InitialSettingsActivity> { }
         finish()
+    }
+
+    override fun onDestroy() {
+        vpIntro.unregisterOnPageChangeCallback(pagerCallback)
+        super.onDestroy()
     }
 }
