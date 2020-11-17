@@ -18,6 +18,9 @@ android {
     multiDexEnabled true
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     archivesBaseName = "$applicationId-v$versionCode($versionName)"
+
+    buildConfigField 'String', "FIXER_API_KEY", fixer_api_key
+    buildConfigField 'String', "FIXER_BASE_URL", '"http://data.fixer.io/api/"'
   }
   buildFeatures {
     viewBinding true
@@ -27,11 +30,11 @@ android {
     release {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-      versionNameSuffix "-release"
+      versionNameSuffix ".prod"
     }
     debug {
       minifyEnabled false
-      versionNameSuffix "-debug"
+      versionNameSuffix ".dev"
     }
   }
   androidExtensions {
