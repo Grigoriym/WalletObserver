@@ -1,29 +1,22 @@
 package com.grappim.walletobserver.ui.intro
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+
+const val NUM_PAGES = 4
 
 class IntroPagerAdapter(
-  fragmentManager: FragmentManager
-) : FragmentStatePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-    override fun getItem(position: Int): Fragment {
-        return when (position) {
-          0 -> IntroFirstFragment()
-          1 -> IntroSecondFragment()
-          2 -> IntroThirdFragment()
+    fragmentActivity: FragmentActivity
+) : FragmentStateAdapter(fragmentActivity) {
+
+    override fun getItemCount(): Int = NUM_PAGES
+
+    override fun createFragment(position: Int): Fragment =
+        when (position) {
+            0 -> IntroFirstFragment()
+            1 -> IntroSecondFragment()
+            2 -> IntroThirdFragment()
             else -> IntroFourthFragment()
         }
-    }
-
-    override fun getCount(): Int = 4
-
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when (position) {
-          0 -> "First"
-          1 -> "Second"
-          2 -> "Third"
-            else -> "Fourth"
-        }
-    }
 }
