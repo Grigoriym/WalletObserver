@@ -9,6 +9,7 @@ const val NUM_PAGES = 4
 class IntroPagerAdapter(
     fragmentActivity: FragmentActivity
 ) : FragmentStateAdapter(fragmentActivity) {
+
     override fun getItemCount(): Int = NUM_PAGES
 
     override fun createFragment(position: Int): Fragment =

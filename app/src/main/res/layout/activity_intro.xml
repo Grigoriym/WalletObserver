@@ -2,55 +2,61 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/introContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.intro.IntroActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpIntro"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0">
+
+    </androidx.viewpager2.widget.ViewPager2>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnIntroSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp"
         android:text="@string/intro_skip"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wormDotsIndicator" />
 
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/worm_dots_indicator"
+        android:id="@+id/wormDotsIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:dotsColor="@color/dot_inactive_1"
+        android:layout_marginTop="16dp"
+        app:dotsColor="@color/intro_dot_indicator"
         app:dotsCornerRadius="8dp"
         app:dotsSize="16dp"
-        app:dotsSpacing="4dp"
+        app:dotsSpacing="6dp"
         app:dotsWidthFactor="2.5"
-        app:layout_constraintBottom_toBottomOf="@+id/btnIntroSkip"
-        app:layout_constraintEnd_toStartOf="@+id/btnIntroNext"
-        app:layout_constraintStart_toEndOf="@+id/btnIntroSkip"
-        app:layout_constraintTop_toTopOf="@+id/btnIntroSkip"
-        app:progressMode="true"
-        app:selectedDotColor="@color/dot_inactive_2" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnIntroNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/intro_next"
-        app:layout_constraintBottom_toBottomOf="@+id/btnIntroSkip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnIntroSkip" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vpIntro"
+        app:progressMode="false"
+        app:selectedDotColor="@color/intro_dot_indicator_selected" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
