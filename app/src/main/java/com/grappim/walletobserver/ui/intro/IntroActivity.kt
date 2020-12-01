@@ -7,7 +7,7 @@ import com.grappim.walletobserver.R
 import com.grappim.walletobserver.core.extensions.launchActivity
 import com.grappim.walletobserver.core.storage.PrefsManager
 import com.grappim.walletobserver.databinding.ActivityIntroBinding
-import com.grappim.walletobserver.ui.initial_settings.InitialSettingsActivity
+import com.grappim.walletobserver.ui.login.signup.SignUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_intro.vpIntro
 import javax.inject.Inject
@@ -40,7 +40,7 @@ class IntroActivity : AppCompatActivity(R.layout.activity_intro) {
 
     private fun finishIntro() {
         prefsManager.setFirstTimeLaunch(false)
-        launchActivity<InitialSettingsActivity> { }
+        launchActivity<SignUpActivity> { }
         finish()
     }
 }

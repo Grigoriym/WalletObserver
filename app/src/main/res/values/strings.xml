@@ -6,6 +6,13 @@
   <!--Pad items-->
   <string name="msg_invalid_expression">Invalid expression</string>
 
+  <string name="sign_up_welcome">Sign up to create a secure account</string>
+  <string name="sign_up_tos">I\'ve reviewed and agree to the Terms of Services and Privacy Policy regarding the consent for the use of my personal data.</string>
+  <string name="sign_up_connect_with_google">Connect with Google</string>
+  <string name="sign_up_connect_with_facebook">Connect with Facebook</string>
+  <string name="sign_up_log_in">Already have an account? Log In</string>
+  <string name="sign_up_accept_tos">You must agree with our Terms &amp; Conditions before you cna continue</string>
+
   <string name="ac" translatable="false">AC</string>
   <string name="value_update" translatable="false">+/-</string>
   <string name="percentage" translatable="false">%</string>

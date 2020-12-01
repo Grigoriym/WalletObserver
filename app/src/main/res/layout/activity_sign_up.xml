@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerSignUp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <TextView
+        android:id="@+id/textSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/sign_up_welcome"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBoxTos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/sign_up_tos"
+        app:layout_constraintEnd_toEndOf="@+id/textSignUp"
+        app:layout_constraintStart_toStartOf="@+id/textSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/textSignUp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonGoogle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/sign_up_connect_with_google"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxTos"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxTos"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTos" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonFacebook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/sign_up_connect_with_facebook"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonGoogle"
+        app:layout_constraintStart_toStartOf="@+id/buttonGoogle"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGoogle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogIn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/sign_up_log_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonFacebook"
+        app:layout_constraintStart_toStartOf="@+id/buttonFacebook" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

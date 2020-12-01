@@ -13,10 +13,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.grappim.walletobserver.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.drawerLayout
 import kotlinx.android.synthetic.main.activity_main.navigationView
 import kotlinx.android.synthetic.main.activity_main.toolbar
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main),
     NavigationView.OnNavigationItemSelectedListener {
 
