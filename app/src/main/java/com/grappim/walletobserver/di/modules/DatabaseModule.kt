@@ -2,7 +2,6 @@ package com.grappim.walletobserver.di.modules
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.grappim.walletobserver.core.db.AppDatabase
 import com.grappim.walletobserver.core.db.dao.CategoryDAO
 import com.grappim.walletobserver.core.db.dao.RecordDAO
@@ -11,12 +10,12 @@ import com.grappim.walletobserver.core.utils.DB_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
     @Provides
